@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Mon film préféré</title>   
+    </title>
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const authentification = localStorage.getItem("authentification");
+
+        if (authentification !== "trueMonWilly") {
+            alert("Vous devez être connecté pour accéder à cette page !");
+            window.location.href = "pageAcceuil.html"; 
+        }
+    });
+</script>
+<body>
+    <h1>Mon film préféré</h1>
+    <p>Voici un aperçu de mon film préféré :</p>
+    <img src="image.jpg" alt="Image du film" style="width: 300px; height: auto;">
+    <p>Ce film m'a marqué parce que...</p>
+    <p>Je me souviens de la première fois que je l'ai vu...</p>
+    <p>Il a eu un impact sur ma vie en...</p>
+    <button id="deconnexion">Déconnexion</button>
+    <button id="supprimeCompte">Supprime ton compte</button>
+
+    <p>Merci de votre visite !</p>
+
+    <script>
+        deconnexion();
+        supprimeCompte();
+    </script>
+    
+</body>
+</html>

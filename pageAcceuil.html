@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pageAcceuilCss.css">
+    <script src="script.js" defer></script>
+    <title>Page d'accueil - MY MOVIE</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">MY MOVIE</div>
+        </nav>
+
+        <section class="hero">
+            <img src="/api/placeholder/1200/800" alt="Orque au coucher de soleil" class="hero-image">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Bienvenue sur MY MOVIE</h1>
+                <p>J'ai créé cette page pour te partager mon film préféré, afin de te faire comprendre pourquoi je l'aime tant et te faire découvrir un petit bout de ma vie lié à ce choix.</p>
+                <div class="btn-container">
+                    <a href="pageLogin.html" class="btn btn-primary">Se connecter</a>
+                    <a href="pageInscription.html" class="btn btn-secondary">S'inscrire</a>
+                </div>
+                <p class="register-text">Si tu n'as pas encore de compte, inscris-toi pour découvrir la suite !</p>
+            </div>
+        </section>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroContent = document.querySelector('.hero-content');
+            heroContent.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
