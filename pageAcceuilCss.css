@@ -1,60 +1,49 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url(orque1.jpg);
-    background-size: contain; /* L'image couvre tout l'écran */
-    background-position: center; /* Centre l'image */
-    background-repeat: no-repeat; /* Empêche la répétition de l'image */
-    background-attachment: fixed; /* L'image reste fixe lors du défilement */
+/* Page d'accueil - MY MOVIE */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary-color: #6366f1;
+    --secondary-color: #4f46e5;
+    --accent-color: #8b5cf6;
+    --dark-bg: #0f172a;
+    --card-bg: rgba(15, 23, 42, 0.8);
+    --light-text: #f8fafc;
+    --overlay-gradient: linear-gradient(to bottom, rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.85));
+    --primary-gradient: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    --box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+    --transition: all 0.3s ease;
+    --border-radius: 1rem;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: #121212;
-    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
     overflow-x: hidden;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
 }
 
-.navbar {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
+.container {
     width: 100%;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
-.logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    background: linear-gradient(90deg, #ff7e5f, #feb47b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 1px;
-}
-
+/* Section héro avec image de fond */
 .hero {
     height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .hero-image {
@@ -65,6 +54,7 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
+    filter: saturate(1.2);
 }
 
 .overlay {
@@ -73,96 +63,178 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+    background: var(--overlay-gradient);
     z-index: 0;
 }
 
+/* Contenu central avec animation */
 .hero-content {
-    text-align: center;
-    max-width: 800px;
-    padding: 2rem;
+    position: relative;
     z-index: 1;
-    animation: fadeIn 2s ease;
+    max-width: 800px;
+    padding: 3rem;
+    text-align: center;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 1.5s ease, transform 1s ease;
+    transform: translateY(20px);
+    border-left: 4px solid var(--primary-color);
+    border-right: 4px solid var(--accent-color);
 }
 
+.hero-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.hero-content h1 {
-    font-size: 3.5rem;
+@keyframes shimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Titre animé */
+h1 {
+    font-size: 3rem;
     margin-bottom: 1.5rem;
     font-weight: 800;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: shimmer 4s infinite linear;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+    color: rgba(248, 250, 252, 0.9);
 }
 
+/* Conteneur de boutons */
 .btn-container {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
 }
 
+/* Style des boutons */
 .btn {
     display: inline-block;
-    padding: 0.8rem 2rem;
+    padding: 1rem 2.2rem;
     border-radius: 50px;
-    text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .btn-primary {
-    background: linear-gradient(90deg, #ff7e5f, #feb47b);
-    color: #ffffff;
+    background: var(--primary-gradient);
+    color: var(--light-text);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.5s ease;
+}
+
+.btn-primary:hover::after {
+    left: 100%;
 }
 
 .btn-secondary {
     background: transparent;
-    color: #ffffff;
-    border: 2px solid #ffffff;
+    color: var(--light-text);
+    border: 2px solid var(--primary-color);
+    position: relative;
+    z-index: 1;
 }
 
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--primary-gradient);
+    z-index: -1;
+    transition: width 0.3s ease;
+    border-radius: 48px;
 }
 
-.btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-3px);
+.btn-secondary:hover::before {
+    width: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
 }
 
 .register-text {
-    margin-top: 1.5rem;
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    color: rgba(248, 250, 252, 0.7);
+    margin-top: 0.5rem;
+    font-style: italic;
 }
 
+/* Responsive design */
 @media (max-width: 768px) {
-    .hero-content h1 {
+    .hero-content {
+        width: 90%;
+        padding: 2.5rem 1.5rem;
+    }
+    
+    h1 {
         font-size: 2.5rem;
     }
-    .hero-content p {
+    
+    p {
         font-size: 1rem;
     }
+}
+
+@media (max-width: 480px) {
     .btn-container {
         flex-direction: column;
-        align-items: center;
         gap: 1rem;
     }
+    
     .btn {
-        width: 80%;
-        text-align: center;
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
     }
 }
+

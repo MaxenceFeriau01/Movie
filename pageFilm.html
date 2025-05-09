@@ -1,39 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pageFilm.css">
     <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Mon film préféré</title>   
-    </title>
+    <title>Mon Film Préféré - MY MOVIE</title>
 </head>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const authentification = localStorage.getItem("authentification");
-
-        if (authentification !== "trueMonWilly") {
-            alert("Vous devez être connecté pour accéder à cette page !");
-            window.location.href = "pageAcceuil.html"; 
-        }
-    });
-</script>
 <body>
-    <h1>Mon film préféré</h1>
-    <p>Voici un aperçu de mon film préféré :</p>
-    <img src="image.jpg" alt="Image du film" style="width: 300px; height: auto;">
-    <p>Ce film m'a marqué parce que...</p>
-    <p>Je me souviens de la première fois que je l'ai vu...</p>
-    <p>Il a eu un impact sur ma vie en...</p>
-    <button id="deconnexion">Déconnexion</button>
-    <button id="supprimeCompte">Supprime ton compte</button>
+    <header class="site-header">
+        <div class="header-container">
+            <h1 class="site-title">MY MOVIE</h1>
+            <nav class="navigation">
+                <button id="deconnexion" class="nav-btn">Déconnexion</button>
+                <button id="supprimeCompte" class="nav-btn danger">Supprimer compte</button>
+            </nav>
+        </div>
+    </header>
 
-    <p>Merci de votre visite !</p>
+    <main class="movie-container">
+        <!-- Le poster est maintenant en haut à gauche -->
+        <div class="movie-poster">
+            <img src="18369782.jpg" alt="Poster Sauvez Willy" class="poster-image">
+        </div>
+        
+        <div class="movie-details">
+            <h1 class="movie-title">Sauvez Willy</h1>
+            <div class="movie-meta">
+                <span class="year">1993</span>
+                <span class="duration">112 min</span>
+                <span class="rating">Tout public</span>
+                <span class="director">Réalisé par Simon Wincer</span>
+            </div>
+            
+            <div class="movie-synopsis">
+                <h2>Synopsis</h2>
+                <p>Jesse, un jeune garçon orphelin de 12 ans au tempérament rebelle, est arrêté par la police alors qu'il vandalisait un parc aquatique avec ses amis. Au lieu d'être placé en centre de détention, il est confié à de nouveaux parents adoptifs, Annie et Glen Greenwood, et condamné à nettoyer les graffitis qu'il a réalisés au parc aquatique.</p>
+                
+                <p>Pendant qu'il effectue ses travaux d'intérêt général, Jesse fait la connaissance de Willy, une majestueuse orque mâle qui a été capturée dans l'océan et séparée de sa famille. Comme Jesse, Willy est têtu et refuse de coopérer avec les dresseurs qui tentent de lui apprendre des tours pour les spectacles. Reinson, le propriétaire avide du parc, menace de se débarrasser de Willy s'il ne devient pas rapidement rentable.</p>
+                
+                <p>Au fil du temps, Jesse et Willy développent un lien profond et unique. Jesse apprend à communiquer avec l'orque grâce aux conseils de Randolph, un gardien amérindien qui croit en une connexion spirituelle entre les humains et les animaux. Contre toute attente, Jesse parvient à établir une relation de confiance avec Willy, qui commence à répondre à ses commandes et à réaliser des sauts spectaculaires.</p>
+                
+                <p>Cependant, Jesse découvre que Reinson a souscrit une assurance-vie de plusieurs millions de dollars pour Willy et prévoit secrètement de le tuer pour toucher l'argent. Face à cette terrible menace, Jesse, avec l'aide de Randolph et Rae (la soigneuse de Willy), élabore un plan audacieux pour libérer l'orque et le renvoyer dans l'océan, auprès de sa famille.</p>
+                
+                <p>Dans une course contre la montre, ils transportent Willy jusqu'à la côte dans un camion-citerne. Poursuivis par la police et les hommes de Reinson, ils parviennent à atteindre la mer. C'est alors que Jesse doit faire face à l'épreuve la plus difficile : dire adieu à son ami. Dans une scène devenue emblématique, il encourage Willy à sauter par-dessus une digue pour rejoindre l'océan et retrouver la liberté.</p>
+            </div>
+            
+            <!-- Section pour les acteurs -->
+            <div class="cast-section">
+                <h2>Les Acteurs</h2>
+                <div class="cast-container">
+                    <div class="cast-member">
+                        <div class="cast-image">
+                            <img src="jasonJames.jpg" alt="Jason James Richter">
+                        </div>
+                        <p class="cast-name">Jason James Richter</p>
+                        <p class="cast-role">Jesse</p>
+                    </div>
+                    
+                    <div class="cast-member">
+                        <div class="cast-image">
+                            <img src="Lori.jpg" alt="Lori Petty">
+                        </div>
+                        <p class="cast-name">Lori Petty</p>
+                        <p class="cast-role">Rae</p>
+                    </div>
+                    
+                    <div class="cast-member">
+                        <div class="cast-image">
+                            <img src="August.jpg" alt="August Schellenberg">
+                        </div>
+                        <p class="cast-name">August Schellenberg</p>
+                        <p class="cast-role">Randolph</p>
+                    </div>
+                    
+                    <div class="cast-member">
+                        <div class="cast-image">
+                            <img src="Michael.jpg" alt="Michael Madsen">
+                        </div>
+                        <p class="cast-name">Michael Madsen</p>
+                        <p class="cast-role">Glen Greenwood</p>
+                    </div>
+                    
+                    <div class="cast-member">
+                        <div class="cast-image">
+                            <img src="Jayne.jpg" alt="Jayne Atkinson">
+                        </div>
+                        <p class="cast-name">Jayne Atkinson</p>
+                        <p class="cast-role">Annie Greenwood</p>
+                    </div>
+                    
+                    <div class="cast-member">
+                        <div class="cast-image">
+                            <img src="iron.jpg"Michael Ironside">
+                        </div>
+                        <p class="cast-name">Michael Ironside</p>
+                        <p class="cast-role">Dial</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="personal-section">
+                <h2>Pourquoi j'aime ce film</h2>
+                <p>J'ai créé cette page pour te partager mon film préféré, afin de te faire comprendre pourquoi je l'aime tant et te faire découvrir un petit bout de ma vie lié à ce choix.</p>
+                
+                <p>Ce film a marqué mon enfance avec ses messages puissants sur l'amitié, la liberté et le respect des animaux. La relation entre Jesse et Willy symbolise parfaitement comment deux êtres, malgré leurs différences, peuvent se comprendre et s'aider mutuellement à surmonter leurs difficultés.</p>
+                
+                <p>J'ai toujours été fasciné par les orques, et ce film m'a sensibilisé très jeune à la question de la captivité des animaux marins. La scène finale, où Willy saute par-dessus la digue pour retrouver sa liberté, reste pour moi l'un des moments les plus émouvants du cinéma.</p>
+            </div>
+            
+            <div class="trailer-section">
+                <h2>Bande-annonce</h2>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PRSo6esNNtw" title="Bande-annonce Sauvez Willy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <div class="movie-facts">
+                <h2>Anecdotes sur le film</h2>
+                <ul>
+                    <li>La célèbre scène du saut de Willy par-dessus la digue est devenue l'une des scènes les plus iconiques du cinéma des années 90</li>
+                    <li>La musique du film, notamment le thème principal "Will You Be There" interprété par Michael Jackson, a contribué à son succès mondial</li>
+                    <li>Le film a connu plusieurs suites, dont "Sauvez Willy 2" et "Sauvez Willy 3"</li>
+                    <li>Keiko, l'orque qui a joué Willy, était réellement en captivité et le film a contribué à sensibiliser le public à la cause des orques en captivité</li>
+                </ul>
+            </div>
+        </div>
+    </main>
 
     <script>
-        deconnexion();
-        supprimeCompte();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Vérification de l'authentification
+            const auth = localStorage.getItem("authentification");
+            if (auth !== "trueMonWilly") {
+                alert("Vous devez être connecté pour accéder à cette page !");
+                window.location.href = "pageLogin.html";
+                return;
+            }
+            
+            // Initialisation des fonctions
+            deconnexion();
+            supprimeCompte();
+        });
     </script>
-    
 </body>
 </html>
